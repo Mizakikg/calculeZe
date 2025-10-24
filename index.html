@@ -10,35 +10,52 @@
         body {
             font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
             background: linear-gradient(to bottom, #87CEEB 60%, #32CD32 40%);
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; margin: 0; color: #333; padding: 10px;
-            box-sizing: border-box; position: relative; overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+            padding: 10px;
+            box-sizing: border-box;
         }
         h1, h2, h3 { color: #0056b3; text-align: center; margin-top: 0; }
         .container {
             background-color: #ffffff;
             background-image: url('https://www.transparenttextures.com/patterns/notebook-light.png');
-            padding: 2rem 3rem; border-radius: 20px;
+            padding: 2rem 3rem;
+            border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            width: 100%; max-width: 600px;
-            border: 10px solid #D2691E; border-style: ridge;
-            text-align: center; box-sizing: border-box;
-            position: relative; z-index: 1; 
+            width: 100%;
+            max-width: 600px;
+            border: 10px solid #D2691E;
+            border-style: ridge;
+            text-align: center;
+            box-sizing: border-box;
         }
         .hide { display: none; }
+
         .btn {
-            background-color: #9B59B6; color: white; border: none; border-radius: 10px;
+            background-color: #9B59B6; /* Roxo amigável */
+            color: white; border: none; border-radius: 10px;
             padding: 15px 20px; font-size: 1.2rem; font-weight: bold;
             cursor: pointer; transition: background-color 0.3s, transform 0.2s;
             margin: 5px; width: 100%; box-sizing: border-box;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
-        .btn:hover { background-color: #8E44AD; transform: scale(1.05); }
+        .btn:hover {
+            background-color: #8E44AD; /* Roxo mais escuro */
+            transform: scale(1.05);
+        }
+
         #start-btn {
-            font-family: 'Luckiest Guy', cursive; font-size: 2rem; padding: 20px 40px;
-            background-color: #32CD32; width: auto;
+            font-family: 'Luckiest Guy', cursive; /* Fonte nova */
+            font-size: 2rem; padding: 20px 40px;
+            background-color: #32CD32; /* Verde-limão */
+            width: auto;
         }
         #start-btn:hover { background-color: #228B22; }
+
         #answer-buttons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
         .btn.correct { background-color: #28a745; }
         .btn.wrong { background-color: #dc3545; }
@@ -49,14 +66,20 @@
         .btn-no { background-color: #FF4136; }
         .btn-no:hover { background-color: #D93429; }
         #score-display { font-size: 1.5rem; font-weight: bold; color: #555; text-align: right; margin-bottom: 10px; }
-        #question-text { font-size: 1.8rem; margin-bottom: 20px; color: #0056b3; }
+
+        #question-text {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #0056b3; /* Azul escuro */
+        }
+
         #start-screen h1 {
-             font-family: 'Luckiest Guy', cursive; font-size: 3.5rem; 
-             color: #FFA500; -webkit-text-stroke: 1.5px #A52A2A; 
+             font-family: 'Luckiest Guy', cursive; font-size: 3.5rem;
+             color: #FFA500; -webkit-text-stroke: 1.5px #A52A2A;
              text-shadow: 3px 3px 0px rgba(0,0,0,0.15); margin-bottom: 0.5rem;
         }
          #start-screen p {
-            font-family: 'Luckiest Guy', cursive; font-size: 1.5rem; 
+            font-family: 'Luckiest Guy', cursive; font-size: 1.5rem;
             color: #007bff; margin-bottom: 1.5rem;
             -webkit-text-stroke: 0.5px #0056b3;
          }
@@ -64,7 +87,7 @@
         .end-decorations { font-size: 2.5rem; margin-bottom: 1rem; }
         #end-screen h2 {
             font-family: 'Luckiest Guy', cursive; font-size: 3rem;
-            color: #28a745; -webkit-text-stroke: 1.5px #155724; 
+            color: #28a745; -webkit-text-stroke: 1.5px #155724;
             text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
         }
         #end-screen h3 {
@@ -74,23 +97,6 @@
         #end-screen p {
             font-family: 'Luckiest Guy', cursive;
             font-size: 1.5rem; color: #555;
-        }
-        .owl-image {
-            position: absolute; height: 150px;
-            z-index: 0; animation: bounce 2s infinite ease-in-out;
-        }
-        #owl1 {
-            top: 15%; left: 50%;
-            transform: translateX(-190%);
-        }
-        #owl2 {
-            top: 15%; left: 50%;
-            transform: translateX(90%);
-            animation-delay: 0.5s;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
         @media (max-width: 480px) {
             body { padding: 5px; }
@@ -107,22 +113,16 @@
             #end-screen h3 { font-size: 1.5rem; }
             #end-screen p { font-size: 1.2rem; }
             #end-screen .btn { width: 100%; margin-bottom: 10px; }
-            .owl-image { height: 100px; top: 5%; }
-            #owl1 { transform: translateX(-160%); }
-            #owl2 { transform: translateX(60%); }
         }
     </style>
 </head>
 <body>
-    
-    <img id="owl1" class="owl-image" src="1761284635151.png" alt="Coruja com Livro">
-    <img id="owl2" class="owl-image" src="1761284947076.png" alt="Coruja com Chapéu">
 
     <div id="start-screen" class="container">
         <div class="decorations">🎒✏️📏📚🌳🏫</div>
         <h1>Calcule Zé</h1>
         <p>Mostre que você é craque na matemática!</p>
-        <button id="start-btn" class="btn">Start</button>
+        <button id="start-btn" class="btn">COMEÇAR</button>
     </div>
     <div id="game-screen" class="container hide">
         <div id="score-display">Pontos: 0</div>
@@ -138,62 +138,107 @@
         <button id="home-btn" class="btn btn-no">Não</button>
     </div>
 
-    <audio id="background-music" loop preload="auto" src="kids-game-loop-fun-and-positive-orchestral-music-248808.mp3"></audio>
+    <audio id="background-music" loop preload="auto" src="https://raw.githubusercontent.com/Mizakikg/calculeZe/refs/heads/main/kids-game-loop-fun-and-positive-orchestral-music-248808.mp3"></audio>
+
+    <audio id="celebration-sound" preload="auto" src="https://raw.githubusercontent.com/Mizakikg/calculeZe/refs/heads/main/goodresult-82807.mp3"></audio>
+
 
     <script>
-        // --- (Todo o JavaScript é o mesmo, ele já funciona) ---
+        // --- Referências aos Elementos HTML ---
         const startScreen = document.getElementById('start-screen');
         const gameScreen = document.getElementById('game-screen');
         const endScreen = document.getElementById('end-screen');
+
         const startBtn = document.getElementById('start-btn');
         const replayBtn = document.getElementById('replay-btn');
         const homeBtn = document.getElementById('home-btn');
+
         const questionText = document.getElementById('question-text');
         const answerButtons = document.getElementById('answer-buttons');
         const scoreDisplay = document.getElementById('score-display');
         const finalScore = document.getElementById('final-score');
+
+        // --- ÁUDIOS ---
         const backgroundMusic = document.getElementById('background-music');
-        if (backgroundMusic) { backgroundMusic.load(); }
+        const celebrationSound = document.getElementById('celebration-sound'); // Referência ao som de comemoração
+
+        // Força o navegador a começar a baixar os áudios
+        if (backgroundMusic) {
+            backgroundMusic.load();
+        }
+        if (celebrationSound) {
+            celebrationSound.load();
+        }
+
+        // --- Variáveis do Jogo ---
         let currentQuestionIndex = 0;
         let score = 0;
         let questions = [];
+
+        // --- Perguntas do Jogo ---
         function setupQuestions() {
             questions = [
+                // Adição
                 { question: "Quanto é 2 + 2?", answers: [ { text: "3", correct: false }, { text: "4", correct: true }, { text: "5", correct: false }, { text: "2", correct: false } ] },
                 { question: "Quanto é 5 + 3?", answers: [ { text: "7", correct: false }, { text: "8", correct: true }, { text: "6", correct: false }, { text: "9", correct: false } ] },
                 { question: "Quanto é 4 + 1?", answers: [ { text: "5", correct: true }, { text: "6", correct: false }, { text: "3", correct: false }, { text: "4", correct: false } ] },
                 { question: "Quanto é 7 + 2?", answers: [ { text: "8", correct: false }, { text: "10", correct: false }, { text: "9", correct: true }, { text: "6", correct: false } ] },
                 { question: "Quanto é 10 + 5?", answers: [ { text: "15", correct: true }, { text: "12", correct: false }, { text: "10", correct: false }, { text: "5", correct: false } ] },
+                // Subtração
                 { question: "Quanto é 5 - 2?", answers: [ { text: "3", correct: true }, { text: "2", correct: false }, { text: "4", correct: false }, { text: "1", correct: false } ] },
                 { question: "Quanto é 8 - 3?", answers: [ { text: "6", correct: false }, { text: "4", correct: false }, { text: "5", correct: true }, { text: "7", correct: false } ] },
                 { question: "Quanto é 10 - 4?", answers: [ { text: "6", correct: true }, { text: "7", correct: false }, { text: "5", correct: false }, { text: "8", correct: false } ] },
                 { question: "Quanto é 6 - 1?", answers: [ { text: "4", correct: false }, { text: "5", correct: true }, { text: "7", correct: false }, { text: "3", correct: false } ] },
                 { question: "Quanto é 9 - 5?", answers: [ { text: "3", correct: false }, { text: "5", correct: false }, { text: "2", correct: false }, { text: "4", correct: true } ] },
+                // Multiplicação
                 { question: "Quanto é 2 x 3?", answers: [ { text: "5", correct: false }, { text: "6", correct: true }, { text: "4", correct: false }, { text: "7", correct: false } ] },
                 { question: "Quanto é 5 x 2?", answers: [ { text: "7", correct: false }, { text: "10", correct: true }, { text: "15", correct: false }, { text: "8", correct: false } ] },
                 { question: "Quanto é 4 x 1?", answers: [ { text: "4", correct: true }, { text: "1", correct: false }, { text: "5", correct: false }, { text: "3", correct: false } ] },
+                // Divisão
                 { question: "Quanto é 6 ÷ 2?", answers: [ { text: "4", correct: false }, { text: "2", correct: false }, { text: "3", correct: true }, { text: "5", correct: false } ] },
                 { question: "Quanto é 10 ÷ 5?", answers: [ { text: "2", correct: true }, { text: "3", correct: false }, { text: "5", correct: false }, { text: "4", correct: false } ] }
             ];
             questions.sort(() => Math.random() - 0.5);
         }
+
+        // --- Funções do Jogo ---
         function startGame() {
             startScreen.classList.add('hide');
             endScreen.classList.add('hide');
             gameScreen.classList.remove('hide');
-            if (backgroundMusic) { 
+
+            // Para o som de comemoração caso esteja tocando
+            if (celebrationSound) {
+                celebrationSound.pause();
+                celebrationSound.currentTime = 0;
+            }
+
+            // Tenta "destravar" o som de comemoração tocando e pausando
+             if (celebrationSound) {
+                 celebrationSound.play().catch(()=>{}); // Ignora erro inicial
+                 celebrationSound.pause();
+                 celebrationSound.currentTime = 0; // Volta pro início
+             }
+
+            // Toca a música de fundo
+            if (backgroundMusic) {
                 var promise = backgroundMusic.play();
                 if (promise !== undefined) {
-                    promise.catch(error => { console.error("Autoplay bloqueado."); }).then(() => {});
+                    promise.catch(error => {
+                        console.error("Autoplay da música de fundo bloqueado.");
+                    }).then(() => {});
                 }
-            } 
-            setupQuestions(); 
-            currentQuestionIndex = 0; score = 0;
+            }
+
+            setupQuestions();
+            currentQuestionIndex = 0;
+            score = 0;
             scoreDisplay.innerText = `Pontos: ${score}`;
             showQuestion();
         }
+
         function showQuestion() {
-            resetState(); 
+            resetState();
             const currentQuestion = questions[currentQuestionIndex];
             questionText.innerText = currentQuestion.question;
             currentQuestion.answers.sort(() => Math.random() - 0.5);
@@ -201,19 +246,24 @@
                 const button = document.createElement('button');
                 button.innerText = answer.text;
                 button.classList.add('btn');
-                if (answer.correct) { button.dataset.correct = answer.correct; }
+                if (answer.correct) {
+                    button.dataset.correct = answer.correct;
+                }
                 button.addEventListener('click', selectAnswer);
                 answerButtons.appendChild(button);
             });
         }
+
         function resetState() {
             while (answerButtons.firstChild) {
                 answerButtons.removeChild(answerButtons.firstChild);
             }
         }
+
         function selectAnswer(e) {
             const selectedButton = e.target;
             const isCorrect = selectedButton.dataset.correct === "true";
+
             if (isCorrect) {
                 selectedButton.classList.add('correct');
                 score++;
@@ -221,29 +271,67 @@
             } else {
                 selectedButton.classList.add('wrong');
             }
+
             Array.from(answerButtons.children).forEach(button => {
-                if (button.dataset.correct === "true") { button.classList.add('correct'); }
+                if (button.dataset.correct === "true") {
+                    button.classList.add('correct');
+                }
                 button.disabled = true;
             });
+
             setTimeout(() => {
                 currentQuestionIndex++;
-                if (currentQuestionIndex < questions.length) { showQuestion(); } else { showEndScreen(); }
+                if (currentQuestionIndex < questions.length) {
+                    showQuestion();
+                } else {
+                    showEndScreen();
+                }
             }, 1500);
         }
+
         function showEndScreen() {
             gameScreen.classList.add('hide');
             endScreen.classList.remove('hide');
             finalScore.innerText = `Sua pontuação foi: ${score} de ${questions.length}`;
-            if (backgroundMusic) { backgroundMusic.pause(); backgroundMusic.currentTime = 0; }
+
+            // Para a música de fundo
+            if (backgroundMusic) {
+                backgroundMusic.pause();
+                backgroundMusic.currentTime = 0;
+            }
+
+            // Toca o som de comemoração
+            if (celebrationSound) {
+                celebrationSound.currentTime = 0; // Garante que comece do início
+                celebrationSound.play().catch(error => {
+                   console.error("Erro ao tocar som de comemoração:", error);
+                   // Se aparecer este erro no console (F12), o navegador bloqueou.
+                });
+            }
         }
+
         function goToHome() {
             endScreen.classList.add('hide');
             startScreen.classList.remove('hide');
-            if (backgroundMusic) { backgroundMusic.pause(); backgroundMusic.currentTime = 0; }
+
+            // Para a música de fundo
+            if (backgroundMusic) {
+                backgroundMusic.pause();
+                backgroundMusic.currentTime = 0;
+            }
+
+            // Para o som de comemoração caso esteja tocando
+            if (celebrationSound) {
+                celebrationSound.pause();
+                celebrationSound.currentTime = 0;
+            }
         }
+
+        // --- Event Listeners ---
         startBtn.addEventListener('click', startGame);
-        replayBtn.addEventListener('click', startGame); 
+        replayBtn.addEventListener('click', startGame);
         homeBtn.addEventListener('click', goToHome);
+
     </script>
 </body>
 </html>
