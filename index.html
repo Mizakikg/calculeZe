@@ -138,9 +138,9 @@
         <button id="home-btn" class="btn btn-no">Não</button>
     </div>
 
-    <audio id="background-music" loop preload="auto" src="https://raw.githubusercontent.com/Mizakikg/calculeZe/refs/heads/main/kids-game-loop-fun-and-positive-orchestral-music-248808.mp3"></audio>
+    <audio id="background-music" loop preload="auto" src="kids-game-loop-fun-and-positive-orchestral-music-248808.mp3"></audio>
 
-    <audio id="celebration-sound" preload="auto" src="https://raw.githubusercontent.com/Mizakikg/calculeZe/refs/heads/main/goodresult-82807.mp3"></audio>
+    <audio id="celebration-sound" preload="auto" src="goodresult-82807.mp3"></audio>
 
 
     <script>
@@ -162,7 +162,7 @@
         const backgroundMusic = document.getElementById('background-music');
         const celebrationSound = document.getElementById('celebration-sound'); // Referência ao som de comemoração
 
-        // Força o navegador a começar a baixar os áudios
+        // Tenta carregar os áudios (importante para o navegador saber deles)
         if (backgroundMusic) {
             backgroundMusic.load();
         }
@@ -213,19 +213,24 @@
                 celebrationSound.currentTime = 0;
             }
 
-            // Tenta "destravar" o som de comemoração tocando e pausando
+            // Tenta "destravar" os sons tocando e pausando
              if (celebrationSound) {
-                 celebrationSound.play().catch(()=>{}); // Ignora erro inicial
+                 celebrationSound.play().catch(()=>{});
                  celebrationSound.pause();
-                 celebrationSound.currentTime = 0; // Volta pro início
+                 celebrationSound.currentTime = 0;
+             }
+             if (backgroundMusic) {
+                 backgroundMusic.play().catch(()=>{});
+                 backgroundMusic.pause();
+                 backgroundMusic.currentTime = 0;
              }
 
-            // Toca a música de fundo
+            // Toca a música de fundo (agora com mais chance de funcionar)
             if (backgroundMusic) {
                 var promise = backgroundMusic.play();
                 if (promise !== undefined) {
                     promise.catch(error => {
-                        console.error("Autoplay da música de fundo bloqueado.");
+                        console.error("Autoplay da música de fundo bloqueado:", error);
                     }).then(() => {});
                 }
             }
@@ -303,10 +308,13 @@
             // Toca o som de comemoração
             if (celebrationSound) {
                 celebrationSound.currentTime = 0; // Garante que comece do início
-                celebrationSound.play().catch(error => {
-                   console.error("Erro ao tocar som de comemoração:", error);
-                   // Se aparecer este erro no console (F12), o navegador bloqueou.
-                });
+                // Tenta tocar e mostra erro se falhar
+                var promise = celebrationSound.play();
+                 if (promise !== undefined) {
+                    promise.catch(error => {
+                       console.error("Erro ao tocar som de comemoração:", error);
+                    }).then(() => {});
+                }
             }
         }
 
